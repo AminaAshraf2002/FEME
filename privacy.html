@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Feme</title>
+
+    <!-- External CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="./images/logo.png" type="image/png">
+
+    <style>
+        /* ================================
+           CSS VARIABLES & RESET
+           ================================ */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-purple: #6B46C1;
+            --primary-blue: #3B82F6;
+            --primary-pink: #EC4899;
+            --accent-teal: #14B8A6;
+            --accent-orange: #F59E0B;
+            --text-dark: #1F2937;
+            --text-medium: #4B5563;
+            --text-light: #6B7280;
+            --text-lighter: #9CA3AF;
+            --bg-white: #FFFFFF;
+            --bg-light: #F9FAFB;
+            --bg-beige: #F5F4F2;
+            --border-light: #E5E7EB;
+            --gradient-primary: linear-gradient(135deg, #6B46C1 0%, #3B82F6 50%, #EC4899 100%);
+            --gradient-secondary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --shadow-glow: 0 0 30px rgba(107, 70, 193, 0.4);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 85%;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-white);
+            overflow-x: hidden;
+            font-size: 1rem;
+        }
+
+        /* ================================
+           NAVIGATION
+           ================================ */
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 0.75rem 0;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 70px;
+            overflow: visible;
+            position: relative;
+        }
+
+        .logo-container:hover {
+            transform: scale(1.05) rotate(1deg);
+        }
+
+        .logo-image {
+            height: 280px;
+            width: auto;
+            max-width: 400px;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            object-fit: contain;
+            transform: scale(0.6);
+            transform-origin: center;
+            margin: -60px -50px;
+            filter: drop-shadow(0 4px 15px rgba(107, 70, 193, 0.3));
+        }
+
+        .logo-image:hover {
+            transform: scale(0.65);
+            filter: drop-shadow(0 8px 25px rgba(107, 70, 193, 0.5)) brightness(1.1);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            padding: 1rem 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--gradient-primary);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 2px;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-purple);
+            transform: translateY(-3px);
+        }
+
+        .back-home-btn {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 15px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .back-home-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .back-home-btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .back-home-btn:hover i {
+            transform: translateX(-3px);
+        }
+
+        /* ================================
+           HERO SECTION
+           ================================ */
+
+        .hero {
+            background: var(--gradient-primary);
+            padding: 150px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            pointer-events: none;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+            margin: 0 auto;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ================================
+           MAIN CONTENT
+           ================================ */
+
+        .main-content {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 25px;
+            padding: 3rem;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--border-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+
+        .policy-content {
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+
+        .policy-content h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-purple);
+            margin: 2.5rem 0 1.5rem 0;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .policy-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+
+        .policy-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .policy-content h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin: 2rem 0 1rem 0;
+        }
+
+        .policy-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            color: var(--text-medium);
+        }
+
+        .policy-content ul {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+
+        .policy-content li {
+            margin-bottom: 0.8rem;
+            color: var(--text-medium);
+            position: relative;
+        }
+
+        .policy-content li::marker {
+            color: var(--primary-purple);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(107, 70, 193, 0.05), rgba(236, 72, 153, 0.05));
+            border-left: 4px solid var(--primary-purple);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+            font-weight: 500;
+        }
+
+        .contact-section {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .contact-section h3 {
+            color: var(--primary-purple);
+            margin-bottom: 1rem;
+        }
+
+        .contact-link {
+            color: var(--primary-purple);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .contact-link:hover {
+            background: rgba(107, 70, 193, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* ================================
+           FOOTER
+           ================================ */
+
+        .footer {
+            background: var(--text-dark);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(107, 70, 193, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
+            pointer-events: none;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-content p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        /* ================================
+           MOBILE MENU STYLES
+           ================================ */
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            padding: 10px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger {
+            width: 25px;
+            height: 3px;
+            background: var(--text-dark);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 2px;
+        }
+
+        /* ================================
+           RESPONSIVE DESIGN
+           ================================ */
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .navbar {
+                padding: 0.875rem 0;
+            }
+
+            .nav-container {
+                padding: 0 1.5rem;
+            }
+
+            .logo-container {
+                height: 60px;
+            }
+
+            .logo-image {
+                height: 240px;
+                transform: scale(0.45);
+                margin: -50px -40px;
+            }
+
+            .hero {
+                padding: 120px 0 60px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .main-content {
+                padding: 60px 0;
+            }
+
+            .content-card {
+                padding: 2rem;
+            }
+
+            .policy-content h2 {
+                font-size: 1.6rem;
+            }
+
+            .container {
+                padding: 0 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .content-card {
+                padding: 1.5rem;
+            }
+
+            .policy-content h2 {
+                font-size: 1.4rem;
+            }
+
+            .policy-content h3 {
+                font-size: 1.2rem;
+            }
+
+            .back-home-btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* ================================
+           UTILITY CLASSES
+           ================================ */
+
+        .text-center { text-align: center; }
+        
+        ::selection {
+            background: var(--primary-purple);
+            color: white;
+        }
+
+        ::-moz-selection {
+            background: var(--primary-purple);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-container" onclick="window.location.href='index.html'">
+                <img src="./images/logo.png" alt="Feme - Empowering Minds. Healing Hearts." class="logo-image">
+            </div>
+
+            <ul class="nav-menu">
+                <li><a href="index.html#home" class="nav-link">Home</a></li>
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+                <li><a href="index.html#services" class="nav-link">Services</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            
+            <a href="index.html" class="back-home-btn">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back to Home</span>
+            </a>
+            
+            <div class="mobile-menu">
+                <div class="hamburger"></div>
+                <div class="hamburger"></div>
+                <div class="hamburger"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <h1>Privacy Policy</h1>
+            <p class="subtitle">Your privacy is important to us. Learn how we collect, use, and protect your personal information.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="main-content">
+        <div class="container">
+            <div class="content-card">
+                <div class="policy-content">
+                    <div class="highlight-box">
+                        <p><strong>Last Updated:</strong> January 2025</p>
+                        <p>Feme ensures a steady commitment to User privacy with regard to the protection of Your personal information that you may share across this Platform/Application.</p>
+                    </div>
+
+                    <p>For the purpose of registration and to provide Services We may collect and, in some circumstances, disclose information about you with your permission. To ensure better protection of Your privacy, We provide this notice explaining Our information collection and disclosure policies.</p>
+
+                    <h2>DATA COLLECTED</h2>
+                    <p>We are committed to respecting Your online privacy. We further recognize Your need for appropriate protection and management of any Personal Information You share with us. We may collect the following information:</p>
+                    <ul>
+                        <li>Personal data including but not limited to Name, Phone Number, Email ID, Address, City, Gender, Age, Payment Details as per Payment Gateway Rules</li>
+                        <li>Information collected through permission derived by the Platform for Location access, and storage permissions etc.</li>
+                        <li>Tracking Information such as IP address, Device ID, URL visited, browser information, and other interactions with the Platform</li>
+                        <li>Details of Platform usage for analytics</li>
+                    </ul>
+
+                    <h3>Why Data Collection?</h3>
+                    <ul>
+                        <li>To enable the provision of services opted for by you</li>
+                        <li>To enable the viewing of content in your interest</li>
+                        <li>To communicate the necessary account and service-related information from time to time</li>
+                        <li>To allow you to receive quality customer care services and data Collection</li>
+                        <li>To comply with applicable laws, rules and regulations</li>
+                        <li>To enable Supporters to engage in a sound manner</li>
+                    </ul>
+
+                    <p>We may use Your contact information internally to direct its efforts for service improvement but shall immediately delete all such information upon withdrawal of your consent for the same through the 'unsubscribe' button or through an email to be sent to "hello@feme.co.in". To the extent possible, we provide You with the option of not divulging any specific information that you wish for us not to collect, store or use. You may also choose not to use a particular service or feature on the Platform and opt-out of any non-essential communications from the Platform.</p>
+
+                    <h2>USE OF YOUR DATA</h2>
+                    <ul>
+                        <li>The information provided by you shall be used to provide and improve the service for you and all users</li>
+                        <li>To provide you with services on your request</li>
+                        <li>For maintaining an internal record</li>
+                        <li>For enhancing the Services provided</li>
+                        <li>For maintaining record under the legal and statutory provisions</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <p><strong>Important:</strong> We will not sell, license or trade Your personal information. We will not share your personal information with others unless they are acting under our instructions or we are required to do so by law.</p>
+                    </div>
+
+                    <p>Information collected via Our server logs includes users' IP addresses and the pages visited; this will be used to manage the web system and troubleshoot problems. We also use third-party analytics, tracking, optimization and targeting tools to understand how users engage with our Platform so that we can improve it and cater personalized content/ads according to their preferences.</p>
+
+                    <h2>HOW DATA IS COLLECTED</h2>
+                    <ul>
+                        <li>Before or at the time of collecting personal information, we will identify the purposes for which information is being collected from You which shall not be mandatory to be disclosed by You</li>
+                        <li>We will collect and use your personal information solely to fulfil those purposes specified by us, within the scope of the consent of the individual concerned or as required by law</li>
+                        <li>We will only retain personal information as long as necessary for the fulfilment of those purposes. We will collect personal information by lawful and fair means and with Your knowledge and consent</li>
+                        <li>Personal data should be relevant to the purposes for which it is to be used, and, to the extent necessary for those purposes, should be accurate, complete, and up-to-date</li>
+                    </ul>
+
+                    <h2>EXTERNAL LINKS ON THE PLATFORM</h2>
+                    <p>The Platform may include advertisements, hyperlinks to other Platforms or resources. We have no control over any other Platform or resources or contents available on these other Platforms, which are provided by companies or persons other than Feme. You acknowledge and agree that we are not responsible for the availability of any such external sites or resources, and do not endorse any advertising, services/services or other materials on or available from such Platform or resources. You acknowledge and agree that We are not liable for any loss or damage which may be incurred by you as a result of the availability of those external sites or resources, or as a result of any reliance placed by you on the completeness, accuracy or existence of any advertising, services or other materials on, or available from, such Platforms. These external third-party Platforms and resource providers may have their privacy policies governing the collection, storage, retention and disclosure of Your Personal Information that You may be subject to. We recommend that you enter their Platform and review its privacy policy.</p>
+
+                    <h2>PERMISSION AND ACCESS FROM THE DEVICE</h2>
+                    <p>The Application requires permission to access the following features:</p>
+                    <ul>
+                        <li>Files & Media</li>
+                        <li>Location</li>
+                        <li>Contact</li>
+                        <li>Notifications</li>
+                        <li>Phone</li>
+                        <li>Pop up window</li>
+                    </ul>
+
+                    <h2>COOKIES</h2>
+                    <p>A cookie is a small file of letters and numbers that we store on your browser or the hard drive of your computer if you agree. By continuing to browse the site, you are agreeing to our use of cookies. Cookies contain information that is transferred to your computer's hard drive. You can set your browser to refuse all or some browser cookies, or to alert you when Platforms set or access cookies. If you disable or refuse cookies, please note that some parts of this Platform may become inaccessible or not function properly.</p>
+
+                    <h2>YOUR RIGHTS</h2>
+                    <p>Unless subject to an exemption, you have the following rights concerning your data:</p>
+                    <ul>
+                        <li>The right to request a copy of your data which we hold about you</li>
+                        <li>The right to request for any correction to any personal data if it is found to be inaccurate or out of date</li>
+                        <li>The right to withdraw Your consent to the processing at any time</li>
+                        <li>The right to object to the processing of personal data</li>
+                        <li>The right to complain about a supervisory authority</li>
+                        <li>The right to obtain information as to whether personal data are transferred to a third country or an international organization</li>
+                    </ul>
+
+                    <p>Where you hold an account with any of our services, you are entitled to a copy of all personal data which we hold concerning you. You are also entitled to request that we restrict how we use your data in your account when you log in.</p>
+
+                    <h2>COMPLIANCES</h2>
+                    <p>This legal agreement is an electronic record in terms of the Indian Information Technology Act, 2000 and rules there under as applicable and the amended provisions about electronic records in various statutes as amended by the Indian Information Technology Act, 2000. This electronic record is generated by a computer system and does not require any physical or digital signatures.</p>
+
+                    <p>This legal document is published in accordance with the provisions of Rule 3 (1) of the Indian Information Technology (Intermediaries guidelines) Rules, 2011 and Rule 4 of the Information Technology (Reasonable security practices and procedures and sensitive personal data or information) Rules, 2011 of Information Technology Act, 2000 amended through Information Technology Amendment Act, 2008 that require publishing the Terms of Use and practices for access and usage of any functional Platform.</p>
+
+                    <h2>GENERAL</h2>
+                    <ul>
+                        <li>The User may avail Services of the Platform/Application without revealing any data/information which however may be disclosed by the User if necessary or otherwise required by law</li>
+                        <li>The User may not disclose any personal/sensitive information to the Supporters and Feme shall not be responsible for the conduct/behaviour between the User and the Supporters</li>
+                        <li>Feme may receive personal data of the User in the instance of payments for Services and no such data shall be retained by Feme</li>
+                    </ul>
+
+                    <h2>AMENDMENT</h2>
+                    <p>Our Privacy Policy may change from time to time. The most current version of the policy will govern our use of your information and will always be on the Platform. Any amendments to this Policy shall be deemed as accepted by the User on their continued use of the Platform.</p>
+
+                    <h2>CONSENT WITHDRAWAL, DATA DOWNLOAD & DATA REMOVAL REQUESTS</h2>
+                    <p>To withdraw your consent, or to request the download or delete your data with us for any or all our services at any time, please email to "hello@feme.co.in".</p>
+
+                    <div class="contact-section">
+                        <h3>CONTACT US</h3>
+                        <p>If you have any questions or concerns regarding this privacy policy, you should contact us by sending an e-mail to:</p>
+                        <a href="mailto:hello@feme.co.in" class="contact-link">
+                            <i class="fas fa-envelope"></i> hello@feme.co.in
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Feme. All Rights Reserved.</p>
+            <p>Empowering Minds. Healing Hearts. 💜</p>
+        </div>
+    </footer>
+
+    <!-- External JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <script>
+        // Initialize AOS animations
+        if (typeof AOS !== 'undefined') {
+            AOS.init({
+                duration: 800,
+                delay: 100,
+                once: true,
+                offset: 50
+            });
+        }
+
+        // Mobile menu functionality
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navMenu = document.querySelector('.nav-menu');
+
+        if (mobileMenu) {
+            mobileMenu.addEventListener('click', () => {
+                // Simple mobile menu toggle (you can enhance this)
+                console.log('Mobile menu clicked');
+            });
+        }
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navbar (already styled but good to have)
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms and Conditions - Feme</title>
+
+    <!-- External CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="./images/logo.png" type="image/png">
+
+    <style>
+        /* ================================
+           CSS VARIABLES & RESET
+           ================================ */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-purple: #6B46C1;
+            --primary-blue: #3B82F6;
+            --primary-pink: #EC4899;
+            --accent-teal: #14B8A6;
+            --accent-orange: #F59E0B;
+            --text-dark: #1F2937;
+            --text-medium: #4B5563;
+            --text-light: #6B7280;
+            --text-lighter: #9CA3AF;
+            --bg-white: #FFFFFF;
+            --bg-light: #F9FAFB;
+            --bg-beige: #F5F4F2;
+            --border-light: #E5E7EB;
+            --gradient-primary: linear-gradient(135deg, #6B46C1 0%, #3B82F6 50%, #EC4899 100%);
+            --gradient-secondary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --shadow-glow: 0 0 30px rgba(107, 70, 193, 0.4);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 85%;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-white);
+            overflow-x: hidden;
+            font-size: 1rem;
+        }
+
+        /* ================================
+           NAVIGATION
+           ================================ */
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 0.75rem 0;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 70px;
+            overflow: visible;
+            position: relative;
+        }
+
+        .logo-container:hover {
+            transform: scale(1.05) rotate(1deg);
+        }
+
+        .logo-image {
+            height: 280px;
+            width: auto;
+            max-width: 400px;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            object-fit: contain;
+            transform: scale(0.6);
+            transform-origin: center;
+            margin: -60px -50px;
+            filter: drop-shadow(0 4px 15px rgba(107, 70, 193, 0.3));
+        }
+
+        .logo-image:hover {
+            transform: scale(0.65);
+            filter: drop-shadow(0 8px 25px rgba(107, 70, 193, 0.5)) brightness(1.1);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            padding: 1rem 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--gradient-primary);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 2px;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-purple);
+            transform: translateY(-3px);
+        }
+
+        .back-home-btn {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 15px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .back-home-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .back-home-btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .back-home-btn:hover i {
+            transform: translateX(-3px);
+        }
+
+        /* ================================
+           HERO SECTION
+           ================================ */
+
+        .hero {
+            background: var(--gradient-primary);
+            padding: 150px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            pointer-events: none;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+            margin: 0 auto;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ================================
+           TABLE OF CONTENTS
+           ================================ */
+
+        .toc-section {
+            background: var(--bg-light);
+            padding: 60px 0;
+        }
+
+        .toc-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .toc-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-light);
+        }
+
+        .toc-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-purple);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .toc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .toc-item {
+            padding: 1rem;
+            background: var(--bg-light);
+            border-radius: 10px;
+            border-left: 4px solid var(--primary-purple);
+            transition: all 0.3s ease;
+        }
+
+        .toc-item:hover {
+            transform: translateX(8px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .toc-item a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .toc-item:hover a {
+            color: var(--primary-purple);
+        }
+
+        /* ================================
+           MAIN CONTENT
+           ================================ */
+
+        .main-content {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 25px;
+            padding: 3rem;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--border-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+
+        .terms-content {
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+
+        .terms-content h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-purple);
+            margin: 2.5rem 0 1.5rem 0;
+            position: relative;
+            padding-bottom: 0.5rem;
+            scroll-margin-top: 100px;
+        }
+
+        .terms-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+
+        .terms-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .terms-content h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin: 2rem 0 1rem 0;
+            scroll-margin-top: 100px;
+        }
+
+        .terms-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            color: var(--text-medium);
+        }
+
+        .terms-content ul, .terms-content ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+
+        .terms-content li {
+            margin-bottom: 0.8rem;
+            color: var(--text-medium);
+            position: relative;
+        }
+
+        .terms-content li::marker {
+            color: var(--primary-purple);
+        }
+
+        .definition-item {
+            background: linear-gradient(135deg, rgba(107, 70, 193, 0.03), rgba(236, 72, 153, 0.03));
+            border-left: 4px solid var(--primary-purple);
+            padding: 1.2rem;
+            margin: 1rem 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .definition-term {
+            font-weight: 700;
+            color: var(--primary-purple);
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(107, 70, 193, 0.05), rgba(236, 72, 153, 0.05));
+            border: 2px solid rgba(107, 70, 193, 0.2);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .highlight-box::before {
+            content: '⚠️';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            background: white;
+            padding: 0 10px;
+            font-size: 1.2rem;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+            font-weight: 500;
+        }
+
+        .contact-section {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .contact-section h3 {
+            color: var(--primary-purple);
+            margin-bottom: 1rem;
+        }
+
+        .contact-link {
+            color: var(--primary-purple);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        .contact-link:hover {
+            background: rgba(107, 70, 193, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* ================================
+           FOOTER
+           ================================ */
+
+        .footer {
+            background: var(--text-dark);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(107, 70, 193, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
+            pointer-events: none;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-content p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        /* ================================
+           MOBILE MENU STYLES
+           ================================ */
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            padding: 10px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger {
+            width: 25px;
+            height: 3px;
+            background: var(--text-dark);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 2px;
+        }
+
+        /* ================================
+           RESPONSIVE DESIGN
+           ================================ */
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .navbar {
+                padding: 0.875rem 0;
+            }
+
+            .nav-container {
+                padding: 0 1.5rem;
+            }
+
+            .logo-container {
+                height: 60px;
+            }
+
+            .logo-image {
+                height: 240px;
+                transform: scale(0.45);
+                margin: -50px -40px;
+            }
+
+            .hero {
+                padding: 120px 0 60px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .toc-section {
+                padding: 40px 0;
+            }
+
+            .toc-card {
+                padding: 1.5rem;
+            }
+
+            .toc-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .main-content {
+                padding: 60px 0;
+            }
+
+            .content-card {
+                padding: 2rem;
+            }
+
+            .terms-content h2 {
+                font-size: 1.6rem;
+            }
+
+            .container, .toc-container {
+                padding: 0 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .content-card {
+                padding: 1.5rem;
+            }
+
+            .terms-content h2 {
+                font-size: 1.4rem;
+            }
+
+            .terms-content h3 {
+                font-size: 1.2rem;
+            }
+
+            .back-home-btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .toc-card {
+                padding: 1rem;
+            }
+        }
+
+        /* ================================
+           UTILITY CLASSES
+           ================================ */
+
+        .text-center { text-align: center; }
+        
+        ::selection {
+            background: var(--primary-purple);
+            color: white;
+        }
+
+        ::-moz-selection {
+            background: var(--primary-purple);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-container" onclick="window.location.href='index.html'">
+                <img src="./images/logo.png" alt="Feme - Empowering Minds. Healing Hearts." class="logo-image">
+            </div>
+
+            <ul class="nav-menu">
+                <li><a href="index.html#home" class="nav-link">Home</a></li>
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+                <li><a href="index.html#services" class="nav-link">Services</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            
+            <a href="index.html" class="back-home-btn">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back to Home</span>
+            </a>
+            
+            <div class="mobile-menu">
+                <div class="hamburger"></div>
+                <div class="hamburger"></div>
+                <div class="hamburger"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <h1>Terms & Conditions</h1>
+            <p class="subtitle">Please read these terms carefully before using our platform. Your use of Feme services constitutes acceptance of these terms.</p>
+        </div>
+    </section>
+
+    <!-- Table of Contents -->
+    <section class="toc-section">
+        <div class="toc-container">
+            <div class="toc-card">
+                <h2 class="toc-title">Quick Navigation</h2>
+                <div class="toc-grid">
+                    <div class="toc-item"><a href="#definitions">Definitions</a></div>
+                    <div class="toc-item"><a href="#terms-conditions">Terms and Conditions</a></div>
+                    <div class="toc-item"><a href="#registration">Registration Procedure</a></div>
+                    <div class="toc-item"><a href="#limited-use">Right to Limited Use</a></div>
+                    <div class="toc-item"><a href="#termination">Termination</a></div>
+                    <div class="toc-item"><a href="#cancellation">Cancellation & Refund Policy</a></div>
+                    <div class="toc-item"><a href="#reviews">Reviews & Feedback</a></div>
+                    <div class="toc-item"><a href="#liability">Limitation of Liability</a></div>
+                    <div class="toc-item"><a href="#disclaimer">Disclaimer</a></div>
+                    <div class="toc-item"><a href="#indemnification">Indemnification</a></div>
+                    <div class="toc-item"><a href="#force-majeure">Force Majeure</a></div>
+                    <div class="toc-item"><a href="#governing-law">Governing Law</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="main-content">
+        <div class="container">
+            <div class="content-card">
+                <div class="terms-content">
+                    <div class="highlight-box">
+                        <p><strong>Important Notice:</strong> We, Feme, are the creators, owners and publishers of the 'Feme' application and website. Feme is predominantly engaged in providing service that supports the 'User' by way of confidential communications which ensures wellbeing of 'Users' by way of providing expert guidance, engaging empathetic listening and flexible communications as desired by the 'User'.</p>
+                    </div>
+
+                    <p>Feme provides services through its Online Platform, which may be modified, deleted, updated (temporarily or permanently) from time to time as deemed necessary for providing smooth experience for the 'Users'.</p>
+
+                    <h2 id="definitions">DEFINITIONS</h2>
+                    
+                    <div class="definition-item">
+                        <div class="definition-term">'Account'</div>
+                        <p>refers to the personal account created and maintained by the User for availing the Services of Feme.</p>
+                    </div>
+
+                    <div class="definition-item">
+                        <div class="definition-term">'Application'</div>
+                        <p>means the mobile application of Feme available for download and installation to the 'Users' on Google play Store or Apple app store.</p>
+                    </div>
+
+                    <div class="definition-item">
+                        <div class="definition-term">'Content'</div>
+                        <p>means and include any information, text, graphics, photos or other materials uploaded, downloaded or appearing on or as a part of the Services.</p>
+                    </div>
+
+                    <div class="definition-item">
+                        <div class="definition-term">'Online Platform' or 'Platform'</div>
+                        <p>means the website Feme.co.in</p>
+                    </div>
+
+                    <div class="definition-item">
+                        <div class="definition-term">'Services'</div>
+                        <p>include voice calls, sessions and consultations to the 'Users' and the various policies incorporated in terms of use that govern 'User' access to and use of the Online Platform/Application along with the services provided by Feme including SMS, APIs, email notifications, ads, commerce services, Content and other covered services</p>
+                    </div>
+
+                    <div class="definition-item">
+                        <div class="definition-term">'Supporter'</div>
+                        <p>refers to the person/persons engaged in communication with the 'Users' of Feme.</p>
+                    </div>
+
+                    <div class="definition-item">
+                        <div class="definition-term">'User', 'Users', Users' or 'You'</div>
+                        <p>shall refer to the persons' providing required personal information and by way of subscription/recurring payment avails the service provided by Feme.</p>
+                    </div>
+
+                    <h2 id="terms-conditions">TERMS AND CONDITIONS</h2>
+                    
+                    <p>Your access to the Services of the Platform/Application is subject to your agreement to be bound by all the Terms set forth herein and these Terms constitute an agreement between Feme and You in connection with your use of the Online Platform, as defined below. If You have any questions regarding Services, You can email at <strong>hello@feme.co.in</strong>.</p>
+
+                    <p>We may, if required change, modify, add or remove portions of these Terms, at any time and You may review these Terms periodically for updates/changes. Your continued use of the Platform following the changes confirms Your acceptance and agreement to such changes and You can engage in availing access and use the services.</p>
+
+                    <div class="highlight-box">
+                        <p><strong>Important:</strong> You understand that Supporters are individuals associating with Feme to fulfil the Services of Feme and that Feme shall not be responsible for the conduct, behaviour or any declarations made by the Supporters during his/her communication with You while availing the Services and any such incidents may be reported to Feme.</p>
+                    </div>
+
+                    <p>You further understand, agrees and affirms that the services of Feme shall not include providing any medical assistance or professional service to its Users and such needs if required are to be satisfied by approaching concerned certified Government agencies or departments.</p>
+
+                    <p>You understand that the Terms of this agreement are governed by and comply with the provisions of applicable Indian law which includes; The Indian Contract Act, 1872, The (Indian) Information Technology Act, 2000, and various other applicable regulations and guidelines.</p>
+
+                    <p>You agree and understands that these Terms allows Feme to access Registered Users' contact information, including but not limited to email address and phone number for communication purposes so as to provide You with the Services and/or to obtain feedback, comments, suggestions, opinions, reviews in relation to Your use of the Platform/Application/the Services.</p>
+
+                    <p>You agree and affirm that You are 18 years of age or older and that you have the legal right, authority and capacity to use all or part of the Services available through the Platform, and agree to and abide by the Terms and You must not create a Customer account unless you are at least 18 years of age.</p>
+
+                    <h2 id="registration">PROCEDURE FOR REGISTRATION</h2>
+                    
+                    <p>Your registration is required to fully avail the Services of the Platform/Application. You are required to create a profile for Yourself by providing the following accurate information which inter alia includes Name, Phone No, Email ID. Users who register with Feme can purchase the listed products/packages and avail the Services.</p>
+
+                    <p>Feme offers the Users an option of signing up through other third-party social networking sites, including but not limited to WhatsApp, etc. Upon such signup, our servers gain access to information about You from Your social networking account, including but not limited to Your profile, date of birth, name and gender, and all such information is stored in system of Feme.</p>
+
+                    <p>Information collected about you is subject to our Privacy Policy and at any time during Your use of this Platform/Application, You may ensure that confidentiality of Your username and password is protected and any activity under the account shall be deemed to have been done by You.</p>
+
+                    <h2 id="limited-use">RIGHT TO LIMITED USE</h2>
+                    
+                    <p>The User agrees and undertakes not to reverse engineer, modify, copy, distribute, transmit, display, perform, reproduce, publish, license, create derivative works from, transfer, or sell any information or software obtained through the Platform. For the removal of any doubt, it is clarified that unlimited or complete reproduction, copying of the content for commercial or non-commercial purposes and unwarranted modification of data and information within the content of the Platform is not permitted.</p>
+
+                    <h2 id="termination">TERMINATION</h2>
+                    
+                    <h3>Termination by User:</h3>
+                    <p>You have the option to terminate this Agreement at any time by deleting your Account and discontinuing all usage of the Platform. Please be aware that removing the Platform from your device will not automatically delete your Account. To delete your Account, you can drop an email to <strong>hello@feme.co.in</strong> with the subject "Delete Account".</p>
+
+                    <h3>Termination by Feme:</h3>
+                    <p>Feme reserves the right to disable or terminate your user account, remove or disable any content you upload or share, at any time. This includes cases where you have failed to comply with any of the provisions of these Terms, or if activities on your account are deemed by Feme, in its sole discretion, to potentially cause harm to or impair the Services.</p>
+
+                    <h2 id="cancellation">CANCELLATION AND REFUND POLICY</h2>
+                    
+                    <h3>Cancellation Requests:</h3>
+                    <p>Users can request a cancellation of the service by contacting our customer support team. Cancellation requests must be made within a specified timeframe.</p>
+
+                    <h3>Cancellation Timeframe:</h3>
+                    <p>Users must cancel the service at least 3 hours before the scheduled start time to avoid any cancellation fees. Cancellations made beyond the specified timeframe may be subject to a cancellation fee.</p>
+
+                    <h3>Cancellation Fees:</h3>
+                    <p>Cancellation fees may vary depending on the reason for cancellation. The approximate cancellation fee amount will be communicated to the User at the time of booking or upon cancellation request.</p>
+
+                    <h3>Refunds:</h3>
+                    <p>If a cancellation request is eligible for a refund, the refund process will be initiated promptly. Refunds, if applicable, will be issued using the original payment method.</p>
+
+                    <p>Users may be eligible for a refund of their service fees under the following circumstances:</p>
+                    <ul>
+                        <li><strong>Technical Failure:</strong> If there is any known technical failure from our end or any technical failure from your end which did not enable you to stay connected to us beyond a few minutes. Such technical fault has to be communicated to our employee/listener whom you are interacting with or an email be sent with the necessary information immediately.</li>
+                        <li><strong>Non-Delivery:</strong> If the service is not delivered within the promised timeframe or is not provided at all.</li>
+                    </ul>
+
+                    <p>To initiate the refund process, Users must contact the customer support of Feme and convey relevant details, such as the reason for the refund, the service details, and any supporting documentation.</p>
+
+                    <p>Feme will review the request and assess its eligibility once the refund request is received and the evaluation period may vary depending on the complexity of the service and the internal procedures of Feme.</p>
+
+                    <p>The refund timeline will be within 7 working days.</p>
+
+                    <h2 id="reviews">REVIEWS, FEEDBACK AND DATA RETENTION</h2>
+                    
+                    <p>You may be invited by the Company to submit feedback, ratings, suggestions, comments, opinions or reviews on the Platform. It is up to your discretion to submit the same.</p>
+
+                    <p>You are solely responsible for the information and content that you choose to submit to the Company on the Platform, including but not limited to the feedback, ratings, suggestions, comments, opinions or reviews relating to Products purchased by you. You agree not to post or publish any content on the Online Platform that amounts to:</p>
+                    <ul>
+                        <li>An infringement of any Company or third-party intellectual property or privacy rights</li>
+                        <li>A violation of applicable laws or regulations, including but not limited to the relevant rules under Information technology Act, 2000</li>
+                        <li>Defamation</li>
+                    </ul>
+
+                    <p>Feme may choose, in its sole discretion, to use, analyse, and/or publish your reviews, ratings, opinion, comments and feedback in accordance with these Terms. You agree to be contacted by Feme via telephonic or electronic communication for the purposes of obtaining feedback in relation to the Products purchased, dispute resolution, complaint resolution, any further information.</p>
+
+                    <h2 id="liability">LIMITATION OF LIABILITY</h2>
+                    
+                    <div class="highlight-box">
+                        <p><strong>Please read this carefully as it limits the liability of Feme and its parents, subsidiaries, affiliates, related companies, officers, directors, employees, agents, representatives, partners, and licensors.</strong></p>
+                    </div>
+
+                    <p>Your access to and use of the Services or any Content are at your own risk. You understand and agree that the Services are provided to you on an "AS IS" and "AS AVAILABLE" basis without any representation or warranties, express or implied except otherwise specified in writing.</p>
+
+                    <p>Without limiting the foregoing, to the maximum extent permitted under applicable law, WE DISCLAIM ALL WARRANTIES AND CONDITIONS, WHETHER EXPRESS OR IMPLIED, OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.</p>
+
+                    <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, WE SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS OR REVENUES, WHETHER INCURRED DIRECTLY OR INDIRECTLY, OR ANY LOSS OF DATA, USE, GOOD-WILL, OR OTHER INTANGIBLE LOSSES.</p>
+
+                    <p>IN NO EVENT SHALL THE AGGREGATE LIABILITY OF Feme EXCEED THE AMOUNT YOU PAID TO US, FOR THE SERVICES GIVING RISE TO THE CLAIM.</p>
+
+                    <h2 id="disclaimer">DISCLAIMER</h2>
+                    
+                    <p>Feme hereby explicitly disclaims any responsibility for any form of payment, whether made directly or indirectly to any of its employees or listeners during the course of a session. This includes payments that may have been solicited or offered by you, the user. It is essential to understand that Feme's billing system is solely based on charging users for the time spent during sessions, with charges being deducted from the wallet maintained in the user's account.</p>
+
+                    <p>We want to make it unequivocally clear that Feme strictly prohibits and discourages any exchange of personal information between users and our employees or listeners. This encompasses sensitive data such as phone numbers, addresses, bank details, or any other personal information, whether it was voluntarily shared by you during the usage of our services or otherwise.</p>
+
+                    <div class="highlight-box">
+                        <p><strong>Important:</strong> Feme assures Users that Supporters do not have access to any personal information provided by You within the app. Therefore, any information that a Supporter may come across during or after a session will be assumed to have been willingly shared by You.</p>
+                    </div>
+
+                    <p>Our services are designed exclusively for the purpose of providing a platform for interactive sessions. Feme vehemently discourages any attempt by Supporters to establish or extend personal relationships beyond the confines of the sessions sought for. Any intention or activity by Supporters or Users that falls outside the scope of these services is entirely beyond purview and responsibility of Feme.</p>
+
+                    <p>Feme operates in strict compliance with all applicable laws and regulations governing data protection and privacy. Any violation of these laws by Users, or Supporters will be reported to the relevant authorities, and appropriate legal action will be initiated.</p>
+
+                    <h2 id="indemnification">INDEMNIFICATION</h2>
+                    
+                    <p>You agree to indemnify and hold harmless Feme and its officers, directors, employees and agents from any charges, complaints, damages, losses, liabilities, costs and expenses (including attorneys' fees and expert fees) due to, arising out of or relating in any way to any violation by you of the Terms, including but not limited to obligations stated therein relating to representation, warranty, intellectual property, access by minors, any applicable rule, regulation or law, your access or use of the Services and the Platform.</p>
+
+                    <h2 id="force-majeure">FORCE MAJEURE</h2>
+                    
+                    <p>Feme will not be responsible for a breach of the Terms, damages, losses, costs or expenses, caused by any failure or delay of performance of Services and disruption to the Platform if such failure or delay is caused by an act of war, floods, fires, inclement weather conditions, hostility, or sabotage, an act of God, pandemics, lockdowns, Labour stoppages, an electrical, internet, cellular network or telecommunication failure or power outage, government restrictions, political strikes or another event outside the reasonable control of Feme.</p>
+
+                    <h3>SEVERABILITY</h3>
+                    <p>In the event any provision of the Terms become void or unenforceable, it shall not affect the validity of these Terms as a whole, and the unenforceable provisions shall be severed and the remainder of the provisions of these Terms shall continue in full force and effect.</p>
+
+                    <h2 id="governing-law">GOVERNING LAW AND JURISDICTION</h2>
+                    
+                    <p>For the purposes of the Terms:</p>
+                    <ul>
+                        <li>The term "Dispute" will mean any dispute, difference or claim arising out of or relating to: (i) the Terms, its interpretation, or the breach, termination, applicability or validity of the Terms; or (ii) any other dispute arising out of or relating to the relationship between Feme and You</li>
+                        <li>The term "Feme" will mean and include its parents, subsidiaries, affiliates, stockholders, directors, officers, employees, agents, beneficiaries, assignees, successors in interest, and any third party which provides products or services purchased from or distributed by Feme</li>
+                        <li>The term User will mean you and those in privity with you, your representatives, affiliates and family members</li>
+                    </ul>
+
+                    <p>These Terms shall be governed and interpreted by and construed in accordance with the substantive laws of India and subject to arbitration provisions below, each party hereby irrevocably and finally submits to the exclusive jurisdiction of the courts of Ernakulam, Kerala, India thereto in respect of any disputes, legal action or proceedings arising out of or in connection with the Terms, interpretation, duties, performance, breach, etc. of these Terms.</p>
+
+                    <p>Should any Dispute arise out of or in connection with these Terms, the Parties hereto shall first endeavor to settle such Dispute amicably. If the Dispute is not resolved through amicable settlement within fifteen (15) days after commencement of discussions or such longer period as the Parties mutually agree in writing, then either Party may refer the Dispute for resolution by arbitration according to the provisions of the Arbitration and Conciliation Act, 1996 (India).</p>
+
+                    <p>The arbitration shall be conducted by a sole arbitrator appointed by mutual consent of the parties. The seat and venue of arbitration shall be in Ernakulam, Kerala, India, and the language of the proceedings shall be English and Malayalam.</p>
+
+                    <div class="contact-section">
+                        <h3>CONTACT US</h3>
+                        <p>If you have any questions or concerns regarding these terms and conditions, please contact us:</p>
+                        <a href="mailto:hello@feme.co.in" class="contact-link">
+                            <i class="fas fa-envelope"></i> hello@feme.co.in
+                        </a>
+                        <a href="index.html#contact" class="contact-link">
+                            <i class="fas fa-phone"></i> Contact Form
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Feme. All Rights Reserved.</p>
+            <p>Empowering Minds. Healing Hearts. 💜</p>
+        </div>
+    </footer>
+
+    <!-- External JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <script>
+        // Initialize AOS animations
+        if (typeof AOS !== 'undefined') {
+            AOS.init({
+                duration: 800,
+                delay: 100,
+                once: true,
+                offset: 50
+            });
+        }
+
+        // Mobile menu functionality
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navMenu = document.querySelector('.nav-menu');
+
+        if (mobileMenu) {
+            mobileMenu.addEventListener('click', () => {
+                console.log('Mobile menu clicked');
+            });
+        }
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+    </script>
+</body>
+
+</html>
