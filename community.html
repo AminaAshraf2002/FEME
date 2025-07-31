@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Feme</title>
+    <title>Community Guidelines - Feme</title>
 
     <!-- External CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
@@ -226,7 +226,7 @@
         .hero .subtitle {
             font-size: 1.3rem;
             color: rgba(255, 255, 255, 0.9);
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
@@ -266,12 +266,12 @@
             background: var(--gradient-primary);
         }
 
-        .policy-content {
+        .guidelines-content {
             color: var(--text-dark);
             line-height: 1.8;
         }
 
-        .policy-content h2 {
+        .guidelines-content h2 {
             font-size: 2rem;
             font-weight: 800;
             color: var(--primary-purple);
@@ -280,7 +280,7 @@
             padding-bottom: 0.5rem;
         }
 
-        .policy-content h2::after {
+        .guidelines-content h2::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -291,36 +291,80 @@
             border-radius: 2px;
         }
 
-        .policy-content h2:first-child {
+        .guidelines-content h2:first-child {
             margin-top: 0;
         }
 
-        .policy-content h3 {
+        .guidelines-content h3 {
             font-size: 1.4rem;
             font-weight: 700;
             color: var(--text-dark);
             margin: 2rem 0 1rem 0;
         }
 
-        .policy-content p {
+        .guidelines-content p {
             margin-bottom: 1.5rem;
             font-size: 1rem;
             color: var(--text-medium);
         }
 
-        .policy-content ul {
+        .guidelines-content ol {
             margin: 1.5rem 0;
             padding-left: 2rem;
+            counter-reset: guideline-counter;
         }
 
-        .policy-content li {
-            margin-bottom: 0.8rem;
+        .guidelines-content ol li {
+            margin-bottom: 1.5rem;
             color: var(--text-medium);
             position: relative;
+            counter-increment: guideline-counter;
+            padding-left: 1rem;
         }
 
-        .policy-content li::marker {
+        .guidelines-content ol li::marker {
             color: var(--primary-purple);
+            font-weight: 700;
+        }
+
+        .guideline-item {
+            background: linear-gradient(135deg, rgba(107, 70, 193, 0.02), rgba(236, 72, 153, 0.02));
+            border: 1px solid rgba(107, 70, 193, 0.1);
+            border-radius: 15px;
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .guideline-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            background: linear-gradient(135deg, rgba(107, 70, 193, 0.05), rgba(236, 72, 153, 0.05));
+        }
+
+        .guideline-title {
+            font-weight: 700;
+            color: var(--primary-purple);
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .guideline-title::before {
+            content: counter(guideline-counter);
+            background: var(--gradient-primary);
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 700;
+            flex-shrink: 0;
         }
 
         .highlight-box {
@@ -334,6 +378,20 @@
         .highlight-box p {
             margin-bottom: 0;
             font-weight: 500;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.05), rgba(248, 113, 113, 0.05));
+            border-left: 4px solid #EF4444;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .warning-box p {
+            margin-bottom: 0.5rem;
+            color: #DC2626;
+            font-weight: 600;
         }
 
         .contact-section {
@@ -357,6 +415,7 @@
             border-radius: 8px;
             transition: all 0.3s ease;
             display: inline-block;
+            margin: 0.25rem;
         }
 
         .contact-link:hover {
@@ -476,12 +535,16 @@
                 padding: 2rem;
             }
 
-            .policy-content h2 {
+            .guidelines-content h2 {
                 font-size: 1.6rem;
             }
 
             .container {
                 padding: 0 1.5rem;
+            }
+
+            .guideline-item {
+                padding: 1rem;
             }
         }
 
@@ -494,17 +557,22 @@
                 padding: 1.5rem;
             }
 
-            .policy-content h2 {
+            .guidelines-content h2 {
                 font-size: 1.4rem;
             }
 
-            .policy-content h3 {
+            .guidelines-content h3 {
                 font-size: 1.2rem;
             }
 
             .back-home-btn {
                 padding: 0.8rem 1.5rem;
                 font-size: 0.9rem;
+            }
+
+            .guideline-item {
+                padding: 1rem;
+                margin: 1rem 0;
             }
         }
 
@@ -557,8 +625,8 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-container">
-            <h1>Privacy Policy</h1>
-            <p class="subtitle">Your privacy is important to us. Learn how we collect, use, and protect your personal information.</p>
+            <h1>Community Guidelines</h1>
+            <p class="subtitle">Creating a safe, supportive space where meaningful connections flourish and everyone feels welcome to share, learn, and grow together.</p>
         </div>
     </section>
 
@@ -566,112 +634,156 @@
     <section class="main-content">
         <div class="container">
             <div class="content-card">
-                <div class="policy-content">
+                <div class="guidelines-content">
                     <div class="highlight-box">
-                        <p><strong>Last Updated:</strong> January 2025</p>
-                        <p>Feme ensures a steady commitment to User privacy with regard to the protection of Your personal information that you may share across this Platform/Application.</p>
+                        <p><strong>Welcome to Feme!</strong> Our platform is a safe space for users to cultivate bonds and obtain companionship and entertainment in a secure online environment.</p>
                     </div>
 
-                    <p>For the purpose of registration and to provide Services We may collect and, in some circumstances, disclose information about you with your permission. To ensure better protection of Your privacy, We provide this notice explaining Our information collection and disclosure policies.</p>
+                    <p>During your time on Feme, we request you to treat your interactions with other users as though these were interactions in the real world. The platform comprises many users like you, and we want them to be as comfortable as you in their engagements and conversations on the App.</p>
 
-                    <h2>DATA COLLECTED</h2>
-                    <p>We are committed to respecting Your online privacy. We further recognize Your need for appropriate protection and management of any Personal Information You share with us. We may collect the following information:</p>
-                    <ul>
-                        <li>Personal data including but not limited to Name, Phone Number, Email ID, Address, City, Gender, Age, Payment Details as per Payment Gateway Rules</li>
-                        <li>Information collected through permission derived by the Platform for Location access, and storage permissions etc.</li>
-                        <li>Tracking Information such as IP address, Device ID, URL visited, browser information, and other interactions with the Platform</li>
-                        <li>Details of Platform usage for analytics</li>
-                    </ul>
-
-                    <h3>Why Data Collection?</h3>
-                    <ul>
-                        <li>To enable the provision of services opted for by you</li>
-                        <li>To enable the viewing of content in your interest</li>
-                        <li>To communicate the necessary account and service-related information from time to time</li>
-                        <li>To allow you to receive quality customer care services and data Collection</li>
-                        <li>To comply with applicable laws, rules and regulations</li>
-                        <li>To enable Supporters to engage in a sound manner</li>
-                    </ul>
-
-                    <p>We may use Your contact information internally to direct its efforts for service improvement but shall immediately delete all such information upon withdrawal of your consent for the same through the 'unsubscribe' button or through an email to be sent to "hello@feme.co.in". To the extent possible, we provide You with the option of not divulging any specific information that you wish for us not to collect, store or use. You may also choose not to use a particular service or feature on the Platform and opt-out of any non-essential communications from the Platform.</p>
-
-                    <h2>USE OF YOUR DATA</h2>
-                    <ul>
-                        <li>The information provided by you shall be used to provide and improve the service for you and all users</li>
-                        <li>To provide you with services on your request</li>
-                        <li>For maintaining an internal record</li>
-                        <li>For enhancing the Services provided</li>
-                        <li>For maintaining record under the legal and statutory provisions</li>
-                    </ul>
-
-                    <div class="highlight-box">
-                        <p><strong>Important:</strong> We will not sell, license or trade Your personal information. We will not share your personal information with others unless they are acting under our instructions or we are required to do so by law.</p>
+                    <div class="warning-box">
+                        <p><i class="fas fa-exclamation-triangle"></i> Important Safety Notice</p>
+                        <p>Please do not engage in any activities that are illegal or may put you in a compromising position. Be aware that engaging with strangers in a digital setting carries risks. We have a No Nudity Policy and any identifiable nudity during any interaction will be removed or terminated without compensation or refund.</p>
                     </div>
 
-                    <p>Information collected via Our server logs includes users' IP addresses and the pages visited; this will be used to manage the web system and troubleshoot problems. We also use third-party analytics, tracking, optimization and targeting tools to understand how users engage with our Platform so that we can improve it and cater personalized content/ads according to their preferences.</p>
+                    <p>Adhering to the guidelines below will help us maintain a community that enables creation of safe and enriching bonds. If you violate any of these guidelines, appropriate action might be taken including content removal, and in extreme circumstances, informing authorities, account suspension or termination, and forfeiture of money.</p>
 
-                    <h2>HOW DATA IS COLLECTED</h2>
-                    <ul>
-                        <li>Before or at the time of collecting personal information, we will identify the purposes for which information is being collected from You which shall not be mandatory to be disclosed by You</li>
-                        <li>We will collect and use your personal information solely to fulfil those purposes specified by us, within the scope of the consent of the individual concerned or as required by law</li>
-                        <li>We will only retain personal information as long as necessary for the fulfilment of those purposes. We will collect personal information by lawful and fair means and with Your knowledge and consent</li>
-                        <li>Personal data should be relevant to the purposes for which it is to be used, and, to the extent necessary for those purposes, should be accurate, complete, and up-to-date</li>
-                    </ul>
+                    <ol>
+                        <li>
+                            <div class="guideline-item">
+                                <div class="guideline-title">Hate Speech and Discrimination</div>
+                                <p>Do not post hateful or discriminatory content or images or symbols in the App or in your profile image or profile header or bio. Treat others with dignity and respect and do not post any content that is hateful or contains personal attacks. Discourteous, impolite, rude statements intended to harm others or induce mental stress are prohibited.</p>
+                            </div>
+                        </li>
 
-                    <h2>EXTERNAL LINKS ON THE PLATFORM</h2>
-                    <p>The Platform may include advertisements, hyperlinks to other Platforms or resources. We have no control over any other Platform or resources or contents available on these other Platforms, which are provided by companies or persons other than Feme. You acknowledge and agree that we are not responsible for the availability of any such external sites or resources, and do not endorse any advertising, services/services or other materials on or available from such Platform or resources. You acknowledge and agree that We are not liable for any loss or damage which may be incurred by you as a result of the availability of those external sites or resources, or as a result of any reliance placed by you on the completeness, accuracy or existence of any advertising, services or other materials on, or available from, such Platforms. These external third-party Platforms and resource providers may have their privacy policies governing the collection, storage, retention and disclosure of Your Personal Information that You may be subject to. We recommend that you enter their Platform and review its privacy policy.</p>
+                        <li>
+                            <div class="guideline-item">
+                                <div class="guideline-title">Religiously Offensive Content</div>
+                                <p>Be respectful to the religious beliefs of others. Do not publish anything hurtful to the sentiments of others or insults their religion or customs and/or causes communal discord. Gods or religious deities, prophets, figureheads, reincarnations, leaders, religious symbols, emblems etc should not be abused or disfigured in any post.</p>
+                            </div>
+                        </li>
 
-                    <h2>PERMISSION AND ACCESS FROM THE DEVICE</h2>
-                    <p>The Application requires permission to access the following features:</p>
-                    <ul>
-                        <li>Files & Media</li>
-                        <li>Location</li>
-                        <li>Contact</li>
-                        <li>Notifications</li>
-                        <li>Phone</li>
-                        <li>Pop up window</li>
-                    </ul>
+                        <li>
+                            <div class="guideline-item">
+                                <div class="guideline-title">Terrorism and Extremism</div>
+                                <p>Do not post content that supports, encourages or glorifies terrorism or extremism or criminal syndicates or gangs. Do not post content produced by terrorist outfits, criminal organizations, or make references to prominent terrorists, criminal figures, or provide content glorifying acts committed by such personalities, and encourage others to carry out, participate in similar acts of violence.</p>
+                            </div>
+                        </li>
 
-                    <h2>COOKIES</h2>
-                    <p>A cookie is a small file of letters and numbers that we store on your browser or the hard drive of your computer if you agree. By continuing to browse the site, you are agreeing to our use of cookies. Cookies contain information that is transferred to your computer's hard drive. You can set your browser to refuse all or some browser cookies, or to alert you when Platforms set or access cookies. If you disable or refuse cookies, please note that some parts of this Platform may become inaccessible or not function properly.</p>
+                        <li>
+                            <div class="guideline-item">
+                                <div class="guideline-title">Self-harm and Suicide</div>
+                                <p>Mental health and well-being of our users is one of the most important tenets. While we support users who wish to relate their experiences and learnings on self-harm, suicidal thoughts, depression, or any other mental health concerns, any promotion of suicide or self-harm or content that poses risk to other users is prohibited.</p>
+                                <div class="highlight-box" style="margin-top: 1rem; background: linear-gradient(135deg, rgba(14, 184, 166, 0.05), rgba(20, 184, 166, 0.05)); border-left-color: var(--accent-teal);">
+                                    <p><strong><i class="fas fa-heart"></i> Mental Health Resources:</strong> If you believe that a user is at risk, please contact local emergency services. The Government of India's Mental Health Rehabilitation Helpline can be reached at <strong>1800-599-0019</strong>.</p>
+                                </div>
+                            </div>
+                        </li>
 
-                    <h2>YOUR RIGHTS</h2>
-                    <p>Unless subject to an exemption, you have the following rights concerning your data:</p>
-                    <ul>
-                        <li>The right to request a copy of your data which we hold about you</li>
-                        <li>The right to request for any correction to any personal data if it is found to be inaccurate or out of date</li>
-                        <li>The right to withdraw Your consent to the processing at any time</li>
-                        <li>The right to object to the processing of personal data</li>
-                        <li>The right to complain about a supervisory authority</li>
-                        <li>The right to obtain information as to whether personal data are transferred to a third country or an international organization</li>
-                    </ul>
+                        <li>
+                            <div class="guideline-item">
+                                <div class="guideline-title">Violent Content</div>
+                                <p>Do not post content that threatens, depicts or glorifies violence, or encourages acts of violence to humans or animals. Do not use our App for direct or indirect threats of physical harm, theft, vandalism, wrongful confinement, bodily, mental or financial harm. Content with imagery of corpses, severed limbs, gory depictions, medical procedures, which may shock or disgust viewers are not permitted.</p>
+                            </div>
+                        </li>
 
-                    <p>Where you hold an account with any of our services, you are entitled to a copy of all personal data which we hold concerning you. You are also entitled to request that we restrict how we use your data in your account when you log in.</p>
+                        <li>
+                            <div class="guideline-item">
+                                <div class="guideline-title">Graphic or Obscene or Sexual Content</div>
+                                <p>Do not post graphic, obscene and/or sexual content or content that is obscene or pornographic or sexually graphic or pedophilic or contains explicit bestiality, non-consensual sexual acts or incest or depictions of deceased persons or contains violent sexual content including depicting rape or could be seen as depraved. Our App has a zero-tolerance approach to content that depicts children sexually or contains revenge porn.</p>
+                                <p style="margin-top: 1rem;">Do not post any content or engage in any activity that contains sexually explicit remarks, or innuendoes directed at any specific person or persons, or the sharing of sexual (or sexually suggestive) information or media in relation to a person without their consent or any content which may be invasive of a person's bodily privacy. We do not permit explicit images or videos that appear to be taken without the consent of another person or people.</p>
+                            </div>
+                        </li>
 
-                    <h2>COMPLIANCES</h2>
-                    <p>This legal agreement is an electronic record in terms of the Indian Information Technology Act, 2000 and rules there under as applicable and the amended provisions about electronic records in various statutes as amended by the Indian Information Technology Act, 2000. This electronic record is generated by a computer system and does not require any physical or digital signatures.</p>
+                        <li>
+                            <div class="guideline-item">
+                                <div class="guideline-title">Cyberbullying</div>
+                                <p>We do not allow users to engage in bullying or harassment. You must not post content that contains personal attacks, abusive language, slangs or expletives in any languages; name calling, malicious insults with racial undertones or make comments on anyone's attributes, including their physical attributes. You must not violate another user's privacy by posting information and images of them without their consent.</p>
+                            </div>
+                        </li>
 
-                    <p>This legal document is published in accordance with the provisions of Rule 3 (1) of the Indian Information Technology (Intermediaries guidelines) Rules, 2011 and Rule 4 of the Information Technology (Reasonable security practices and procedures and sensitive personal data or information) Rules, 2011 of Information Technology Act, 2000 amended through Information Technology Amendment Act, 2008 that require publishing the Terms of Use and practices for access and usage of any functional Platform.</p>
+                        <li>
+                            <div class="guideline-item">
+                                <div class="guideline-title">Invasion of Privacy</div>
+                                <p>We expect users to respect the privacy of others. Do not publish, share, or encourage the publication of any personal information of another person that invades their privacy or capture, share, publish images of a person's private areas.</p>
+                            </div>
+                        </li>
 
-                    <h2>GENERAL</h2>
-                    <ul>
-                        <li>The User may avail Services of the Platform/Application without revealing any data/information which however may be disclosed by the User if necessary or otherwise required by law</li>
-                        <li>The User may not disclose any personal/sensitive information to the Supporters and Feme shall not be responsible for the conduct/behaviour between the User and the Supporters</li>
-                        <li>Feme may receive personal data of the User in the instance of payments for Services and no such data shall be retained by Feme</li>
-                    </ul>
+                        <li>
+                            <div class="guideline-item">
+                                <div class="guideline-title">Illegal Activities</div>
+                                <p>Much like in the real world, do not break the law when you use our App. Our App does not permit any unlawful behaviour or illegal activities. Do not post content that is illegal or encourages other users to participate in any illegal activity. This includes buying or selling of narcotics, illegal or prescription drugs, alcohol, tobacco products, psychotropic substances or any other category of items that are not permitted to be traded between private individuals. Do not use the platform to offer access to lotteries, gambling, and real money games or encourage money laundering, prostitution, human or child trafficking, organised violence or any other criminal activity.</p>
+                            </div>
+                        </li>
 
-                    <h2>AMENDMENT</h2>
-                    <p>Our Privacy Policy may change from time to time. The most current version of the policy will govern our use of your information and will always be on the Platform. Any amendments to this Policy shall be deemed as accepted by the User on their continued use of the Platform.</p>
+                        <li>
+                            <div class="guideline-item">
+                                <div class="guideline-title">Identity Theft and Impersonation</div>
+                                <p>Identity theft is serious. Do not impersonate any other person or pose as another person, brand or organisation in a confusing or deceptive manner.</p>
+                            </div>
+                        </li>
 
-                    <h2>CONSENT WITHDRAWAL, DATA DOWNLOAD & DATA REMOVAL REQUESTS</h2>
-                    <p>To withdraw your consent, or to request the download or delete your data with us for any or all our services at any time, please email to "hello@feme.co.in".</p>
+                        <li>
+                            <div class="guideline-item">
+                                <div class="guideline-title">Misinformation and Fake News</div>
+                                <p>Always verify information or news before you post it on our App. Do not knowingly share false, misleading or unverified information or morphed or manipulated images, videos or any media that is false. Any parody or satire must be clearly specified.</p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="guideline-item">
+                                <div class="guideline-title">Spamming, Scamming and Phishing</div>
+                                <p>Do not negatively affect the experiences of other users by messaging in bulk from multiple accounts to amplify content or disrupt conversations. Do not send people unsolicited communications.</p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="guideline-item">
+                                <div class="guideline-title">Intellectual Property Infringement</div>
+                                <p>Before posting ensure that content does not belong to another person and that you have the right to do so. Do not upload movies or videos or textbook or notes or literary or musical or dramatic or other content that uses a brand or a logo owned by another person without their explicit permission. In case of a complaint we will take down such content.</p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="guideline-item">
+                                <div class="guideline-title">Malicious Programs</div>
+                                <p>Do not share content that contains a program with any virus or code capable of causing harm, loss to users or that could disrupt, cause harm, limit the functionality of the platform.</p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="guideline-item">
+                                <div class="guideline-title">Child Safety</div>
+                                <p>Our App is designed to preserve the safety of minors i.e those under 18 years. In accordance with law, minors are not allowed on the platform. Any content that exploits or promotes child sexual exploitation is prohibited. Content that depicts or promotes child exploitation is not allowed including, but not limited to:</p>
+                                <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+                                    <li>Visual depictions of children engaged in obscene, indecent, sexually explicit acts or conduct</li>
+                                    <li>Links to third-party sites that host child pornographic content</li>
+                                    <li>Facilitating child abuse</li>
+                                    <li>Sending sexually explicit media to a child</li>
+                                    <li>Recruiting or advertising an interest in a commercial sex act involving a child, or in harboring and/or transporting a child for sexual purposes</li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ol>
+
+                    <div class="warning-box">
+                        <p><i class="fas fa-flag"></i> Report Violations</p>
+                        <p>If you see any content in violation of the above guidelines, please use our Reporting Form or email us at grievance.officer@feme.co.in</p>
+                    </div>
 
                     <div class="contact-section">
-                        <h3>CONTACT US</h3>
-                        <p>If you have any questions or concerns regarding this privacy policy, you should contact us by sending an e-mail to:</p>
+                        <h3>NEED HELP OR HAVE QUESTIONS?</h3>
+                        <p>If you have any questions about these Community Guidelines or need to report a concern, please contact us:</p>
                         <a href="mailto:hello@feme.co.in" class="contact-link">
                             <i class="fas fa-envelope"></i> hello@feme.co.in
                         </a>
+                        <!-- <a href="mailto:grievance.officer@feme.co.in" class="contact-link">
+                            <i class="fas fa-shield-alt"></i> grievance.officer@feme.co.in
+                        </a> -->
+                    </div>
+
+                    <div class="highlight-box" style="margin-top: 2rem;">
+                        <p><strong><i class="fas fa-heart"></i> Remember:</strong> Feme is built on the foundation of respect, empathy, and genuine human connection. Let's work together to maintain a community where everyone feels safe, valued, and empowered to be their authentic selves.</p>
                     </div>
                 </div>
             </div>
@@ -725,7 +837,7 @@
             });
         });
 
-        // Add scroll effect to navbar (already styled but good to have)
+        // Add scroll effect to navbar
         window.addEventListener('scroll', () => {
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 50) {
@@ -733,6 +845,19 @@
             } else {
                 navbar.style.background = 'rgba(255, 255, 255, 0.95)';
             }
+        });
+
+        // Add hover effects to guideline items
+        document.querySelectorAll('.guideline-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px)';
+                this.style.boxShadow = '0 10px 25px -5px rgba(107, 70, 193, 0.15)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '';
+            });
         });
     </script>
 </body>
